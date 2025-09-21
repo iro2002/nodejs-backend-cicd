@@ -26,6 +26,10 @@ const Todo = mongoose.model("Todo", todoSchema);
 
 // CRUD routes
 
+app.get('/', (req, res) => {
+    res.send('Hello World, from express');
+})
+
 // Get all todos
 app.get("/todos", async (req, res) => {
   const todos = await Todo.find();

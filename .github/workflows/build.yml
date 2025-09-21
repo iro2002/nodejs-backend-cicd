@@ -41,6 +41,5 @@ jobs:
         run: >
           docker run -d -p 5000:5000
           --name nodejs-app-container
-          --network nodejs-network
           -e MONGO_URI="${{ secrets.MONGO_URI }}"
           ${{ secrets.DOCKER_USERNAME }}/nodejs-app:latest

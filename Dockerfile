@@ -1,7 +1,15 @@
-FROM node:alpine3.21
+# Dockerfile
+FROM node:18
+
 WORKDIR /app
-COPY package.json ./
+
+COPY package*.json ./
+
 RUN npm install
+
 COPY . .
+
+
 EXPOSE 5000
-CMD [ "npm", "run", "start" ]
+
+CMD ["node", "server.js"]
