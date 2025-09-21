@@ -1,15 +1,16 @@
-# Dockerfile
 FROM node:18
 
 WORKDIR /app
 
+# Install only production dependencies
 COPY package*.json ./
+RUN npm install --production
 
-RUN npm install
+# Copy source code
+COPY . ./
 
-COPY . .
-
-
+# Expose backend port
 EXPOSE 5000
 
+# Run backend server
 CMD ["node", "server.js"]
